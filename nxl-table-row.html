@@ -1,0 +1,42 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="nxl-table-row">
+    <template>
+        <style>
+            :host {
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flex;
+                display: -o-flex;
+                display: flex;
+                -webkit-flex-direction: row;
+                -moz-flex-direction: row;
+                -ms-flex-direction: row;
+                -o-flex-direction: row;
+                flex-direction: row;
+            }
+        </style>
+        <slot></slot>
+    </template>
+
+    <script>
+        /**
+         * `nxl-table-row`
+         * Datable for Polymer 2.x
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class NxlTableRow extends Polymer.Element {
+            static get is() { return 'nxl-table-row'; }
+            static get properties() {
+                return {
+
+                };
+            }
+        }
+
+        window.customElements.define(NxlTableRow.is, NxlTableRow);
+    </script>
+</dom-module>

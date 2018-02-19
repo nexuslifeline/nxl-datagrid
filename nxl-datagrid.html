@@ -1,0 +1,100 @@
+
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="nxl-table.html">
+<link rel="import" href="nxl-table-head.html">
+<link rel="import" href="nxl-table-body.html">
+<link rel="import" href="nxl-table-footer.html">
+<link rel="import" href="nxl-table-row.html">
+<link rel="import" href="nxl-table-col-head.html">
+<link rel="import" href="nxl-table-row-cell.html">
+
+<dom-module id="nxl-datagrid">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .table{
+        display: block;
+      }
+
+    </style>
+    <nxl-table>
+        <nxl-table-head>
+            <nxl-table-row>
+              <template id="gridColumns" is="dom-repeat" items="[[fields]]" as="field">
+                <nxl-table-col-head>
+                    <b>[[field.label]]</b>
+                </nxl-table-col-head>
+              </template>
+            </nxl-table-row>
+        </nxl-table-head>
+        <nxl-table-body>
+            <template id="gridRows" is="dom-repeat" items="[[items]]" as="item">
+                <nxl-table-row>
+                    <template id="gridCells" is="dom-repeat" items="[[_toArray(item)]]" as="data">
+                        <nxl-table-row-cell>
+                            [[data]]
+                        </nxl-table-row-cell>
+                    </template>
+                </nxl-table-row>
+            </template>
+        </nxl-table-body>
+        <nxl-table-footer>
+            <nxl-table-row>
+
+            </nxl-table-row>
+        </nxl-table-footer>
+    </nxl-table>
+  </template>
+
+  <script>
+    /**
+     * `nxl-datagrid`
+     * Datable for Polymer 2.x
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class NxlDatagrid extends Polymer.Element {
+        static get is() { return 'nxl-datagrid'; }
+        static get properties() {
+            return {
+                fields: {
+                  type: Array,
+                  value: function(){
+                      return [];
+                  }
+                },
+                items : {
+                    type: Array,
+                    value: function(){
+                        return [];
+                    }
+                }
+            };
+        }
+
+        constructor(){
+            super();
+        }
+
+        ready(){
+            super.ready();
+        }
+
+        _toArray(obj) {
+            var data = [];
+            this.fields.map(function( value ){
+                data.push( obj[value.key] );
+            });
+            return data;
+        }
+
+    }
+
+    window.customElements.define(NxlDatagrid.is, NxlDatagrid);
+  </script>
+</dom-module>

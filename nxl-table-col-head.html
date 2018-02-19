@@ -1,0 +1,40 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="nxl-table-col-head">
+    <template>
+        <style>
+            :host {
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flex;
+                display: -o-flex;
+                display: flex;
+                flex-basis: 100px;
+                flex-grow: 1;
+                justify-content: flex-start;
+            }
+        </style>
+        <slot></slot>
+    </template>
+
+    <script>
+        /**
+         * `nxl-table-col-head`
+         * Datable for Polymer 2.x
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class NxlTableColHead extends Polymer.Element {
+            static get is() { return 'nxl-table-col-head'; }
+            static get properties() {
+                return {
+
+                };
+            }
+        }
+
+        window.customElements.define(NxlTableColHead.is, NxlTableColHead);
+    </script>
+</dom-module>

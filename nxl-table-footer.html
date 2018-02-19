@@ -1,0 +1,33 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="nxl-table-footer">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <slot></slot>
+    </template>
+
+    <script>
+        /**
+         * `nxl-table-footer`
+         * Datable for Polymer 2.x
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class NxlTableFooter extends Polymer.Element {
+            static get is() { return 'nxl-table-footer'; }
+            static get properties() {
+                return {
+
+                };
+            }
+        }
+
+        window.customElements.define(NxlTableFooter.is, NxlTableFooter);
+    </script>
+</dom-module>

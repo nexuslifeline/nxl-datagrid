@@ -1,0 +1,33 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="nxl-table-body">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <slot></slot>
+    </template>
+
+    <script>
+        /**
+         * `nxl-table-body`
+         * Datable for Polymer 2.x
+         *
+         * @customElement
+         * @polymer
+         * @demo demo/index.html
+         */
+        class NxlTableBody extends Polymer.Element {
+            static get is() { return 'nxl-table-body'; }
+            static get properties() {
+                return {
+
+                };
+            }
+        }
+
+        window.customElements.define(NxlTableBody.is, NxlTableBody);
+    </script>
+</dom-module>
